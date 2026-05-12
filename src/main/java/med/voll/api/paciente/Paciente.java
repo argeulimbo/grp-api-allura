@@ -25,9 +25,12 @@ public class Paciente {
     @Embedded
     private Endereco endereco;
 
+    private Boolean ativo;
+
     public Paciente() { }
 
     public Paciente(DadosCadastroPaciente dados) {
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.cpf = dados.cpf();
@@ -47,4 +50,7 @@ public class Paciente {
         }
     }
 
+    public void excluir() {
+        this.ativo = false;
+    }
 }
